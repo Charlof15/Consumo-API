@@ -1,0 +1,79 @@
+# =================== Manejo de base de datos =================================
+mybatis:
+  mapper-locations: classpath:static/mappers/*.xml
+spring:
+  application:
+    name: Recolecciones
+  datasource:
+    url: ${URIS-DATA-BASE:jdbc:oracle:thin:@35.215.83.21:1521:FFMDEV}
+    username: ${USER-DATA-BASE:FFMAPP}
+    password: ${PASS-DATA-BASE:tpBank4pp01}
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${USER-MONITOR:q}:${PASS-MONITOR:Q}@${HOST-BASICO:34.94.124.52}:8147/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+  instance:
+    prefer-ip-address: true
+    metadata-map:
+      management.context-path: /ffm/recoleccion/actuator
+# =================== Configuracion del microservicio ===========================
+server:
+  port: 8209
+  servlet:
+    context-path: /ffm/utilerias
+
+
+#==================== Configuración de logs ======================================
+logging:
+  level:
+    root: INFO
+    com:
+      zaxxer:
+        hikari:
+          HikariConfig: DEBUG
+  file:
+    name: logmicroservico.log
+    max-history: 1
+    max-size: 100MB
+    
+#==================== Configuración de monitoreo =================================
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  
+# =================== Autentiocacion y Deserealizacion del JWT =================== 
+seguridad:
+  jwt:
+    header: Authorization
+    prefix: Bearer
+    detail: authorities
+    secret: ${JWTSEG-SECRET:Totalplay31032021!}
+    
+# =================== Documentación OpenAPI 3.0 =================================== 
+ffm:
+  api:
+    title: Recoleccion Service
+    version: V 1.0
+    description: >-
+     API que contiene todos los metodos de gestion para las ordenes de trabajo
+  developer:
+    name: Gamaliel Aguilar
+    email: gaguilarc@totalplay.com.mx
+    url: https://www.linkedin.com/in/gamaliel-aguilar-cer%C3%B3n-66729a15a/
+  ws:
+    sf:
+      soql: http://${HOST-BASICO:34.94.124.52}:8135/ffm/integracion/salesforce/search/soqlQuery/
+    ffm:
+      sap: http://${HOST-BASICO:34.94.124.52}:8194/ffm/sap
+  environment:
+    description: ${ENVIRONMENT-DESCRIPTION:NO-CONFIGURADA}
