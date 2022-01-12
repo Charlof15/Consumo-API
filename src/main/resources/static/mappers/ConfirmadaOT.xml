@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.ffm.utilerias.ot.mapper.ConfirmacionMapper">
+
+	<select id="obtenerIdFolio" resultType="com.ffm.utilerias.ot.model.output.OutputFolioOTs">
+
+		SELECT FRLO_FOLIO_ID idFolio
+		FROM FFM_REL_FOLIO_OTS U, FFM_ORDENES_TRABAJO R
+		WHERE U.FRLO_ID = R.FRLO_ID AND FOTR_ID=#{idOrden}
+	</select>
+	
+	<update id="updateOTConfirmada">
+		UPDATE FFM_ORDENES_TRABAJO SET FOTR_CONFIRMADA=#{esConfirmada}
+		WHERE FOTR_ID=#{idOrden}
+	</update>
+	
+<select id="consultaConfiguracion" resultType="com.ffm.utilerias.ot.component.Configuraciones">
+			SELECT 
+				FGCF_LLAVE llave,
+				FGCF_VALOR valor 
+			FROM 
+				FFM_CONFIG_GENERALES 
+			WHERE 
+			FCCO_ID_CONFIGURACION = 17 AND 
+			FCUN_ID_UNIDAD_NEGOCIO = #{idUnidadNegocio} AND 
+			FCPR_ID_PROPIETARIO = #{idPropietario} AND 
+			FGCF_ACTIVO = 1
+	</select>
+
+
+</mapper>

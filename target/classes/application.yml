@@ -5,9 +5,9 @@ spring:
   application:
     name: Recolecciones
   datasource:
-    url: ${URIS-DATA-BASE:jdbc:oracle:thin:@35.215.83.21:1521:FFMDEV}
-    username: ${USER-DATA-BASE:FFMAPP}
-    password: ${PASS-DATA-BASE:tpBank4pp01}
+    url: ${URIS-DATA-BASE}
+    username: ${USER-DATA-BASE}
+    password: ${PASS-DATA-BASE}
 eureka:
   client:
     serviceUrl:
