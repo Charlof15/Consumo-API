@@ -1150,3 +1150,5 @@ Using generated security password: 429e66dc-fa22-4e25-b8f9-38f66d72d08e
 2022-01-12 10:14:14.409  INFO 16280 --- [DiscoveryClient-InstanceInfoReplicator-0] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
 2022-01-12 10:14:14.651  INFO 16280 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_RECOLECCIONES/GS1771009_TPLT.totalplay.corp:Recolecciones:8209: registering service...
 2022-01-12 10:14:15.629  INFO 16280 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_RECOLECCIONES/GS1771009_TPLT.totalplay.corp:Recolecciones:8209 - registration status: 204
+2022-01-12 10:19:12.607  INFO 16280 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-01-12 10:24:12.611  INFO 16280 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
